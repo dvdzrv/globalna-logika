@@ -13,7 +13,7 @@ import {urlFor} from "@/sanity/lib/image";
 
 
      return (
-        <header className="flex item-center justify-between p-4 border-b-blue-500 border-2">
+        <header className="flex item-center justify-between p-4 border-b-blue-500 border-2 bg-radial-[at_50%_75%] from-sky-300 to-blue-400">
             <div>
                 <Link href="/" className="flex items-center justify-between">
                     {
@@ -23,15 +23,7 @@ import {urlFor} from "@/sanity/lib/image";
                             <Image src="../../app/logo.png" alt="Logo" />
                         )
                     }
-
-
-
-
-
-                    {/*
-                    <Image src={siteSetting?.headerLogo ?  urlFor(siteSetting?.headerLogo).url() : ""
-                    } alt="logo" width={50} height={50} className="rounded-4xl" /> */ }
-                    <h2 className="m-2">{siteSetting?.siteTitle}</h2>
+                    <h2 className="m-2 text-white">{siteSetting?.siteTitle}</h2>
                 </Link>
             </div>
 
