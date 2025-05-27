@@ -12,12 +12,25 @@ import {urlFor} from "@/sanity/lib/image";
     const siteSetting = await getSiteSettings();
 
 
-
      return (
         <header className="flex item-center justify-between p-4 border-b-blue-500 border-2">
             <div>
                 <Link href="/" className="flex items-center justify-between">
-                    <Image src={urlFor(siteSetting?.headerLogo)?.url()} alt="logo" width={50} height={50} className="rounded-4xl" />
+                    {
+                        siteSetting?.headerLogo ? (
+                            <Image src={urlFor(siteSetting?.headerLogo).url()} alt="Logo" />
+                        ) : (
+                            <Image src="../../app/logo.png" alt="Logo" />
+                        )
+                    }
+
+
+
+
+
+                    {/*
+                    <Image src={siteSetting?.headerLogo ?  urlFor(siteSetting?.headerLogo).url() : ""
+                    } alt="logo" width={50} height={50} className="rounded-4xl" /> */ }
                     <h2 className="m-2">{siteSetting?.siteTitle}</h2>
                 </Link>
             </div>

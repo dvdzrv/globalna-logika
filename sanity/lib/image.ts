@@ -14,6 +14,6 @@ export const urlFor = (source: {
   crop?: SanityImageCrop;
   alt?: string;
   _type: "image"
-} | undefined) => {
+}) => {
   return builder.image(source)
 }
