@@ -1,0 +1,46 @@
+import React from "react";
+import Link from "next/link"
+import {SignedIn, SignedOut, SignInButton, UserButton} from "@clerk/nextjs";
+import { Button } from "./ui/button"
+import { HeartIcon } from "lucide-react"
+import { getSiteSettings }from "@/sanity/lib/siteSettings/getSiteSettings";
+import Image from "next/image";
+import {urlFor} from "@/sanity/lib/image";
+
+
+ async function Header() {
+    const siteSetting = await getSiteSettings();
+
+
+
+    return (
+        <header className="flex item-center justify-between p-4 border-b-blue-500 border-2">
+            <div>
+                <Link href="/" className="flex items-center justify-between">
+                    <Image src={urlFor(siteSetting?.headerLogo)?.url()} alt="logo" width={50} height={50} className="rounded-4xl" />
+                    <h2 className="m-2">{siteSetting?.siteTitle}</h2>
+                </Link>
+            </div>
+
+            <div className="flex items-center gap-4">
+                <SignedIn>
+                    <div className="flexit">
+                        <UserButton/>
+                    </div>
+                </SignedIn>
+
+                <SignedOut>
+                    <Button asChild variant="outline"
+                    className="p-2 rounded-lg py-2 bg-blue-500 text-white">
+                        <div>
+                            <HeartIcon className="w-4 h-4"/>
+                            <SignInButton mode="modal" />
+                        </div>
+                    </Button>
+                </SignedOut>
+            </div>
+        </header>
+    )
+}
+
+export default Header
