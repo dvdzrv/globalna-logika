@@ -18,7 +18,7 @@ import {urlFor} from "@/sanity/lib/image";
                 <Link href="/" className="flex items-center justify-between">
                     {
                         siteSetting?.headerLogo ? (
-                            <Image src={urlFor(siteSetting?.headerLogo).url()} alt="Logo" />
+                            <Image src={urlFor(siteSetting?.headerLogo).url()} alt="Logo" width={50} height={50} className="rounded-4xl" />
                         ) : (
                             <Image src="../../app/logo.png" alt="Logo" />
                         )
