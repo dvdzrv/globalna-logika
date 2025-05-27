@@ -13,7 +13,7 @@ import {urlFor} from "@/sanity/lib/image";
 
 
 
-    return (
+     return (
         <header className="flex item-center justify-between p-4 border-b-blue-500 border-2">
             <div>
                 <Link href="/" className="flex items-center justify-between">
@@ -24,7 +24,7 @@ import {urlFor} from "@/sanity/lib/image";
 
             <div className="flex items-center gap-4">
                 <SignedIn>
-                    <div className="flexit">
+                    <div className="flex items-center gap-2 hover:gap-4 px-2 py-2 hover:px-4 hover:bg-gray-100 transition-all duration-200 border border-e-gray-200 rounded-full">
                         <UserButton/>
                     </div>
                 </SignedIn>
