@@ -36,7 +36,7 @@ function useMembershipTier(): MembershipLevel | null {
 
     const hasBackstageContent = useSchematicFlag("backstage-content");
     const hasCrewContent = useSchematicFlag("crew-member-content");
-    const hasVipContent = useSchematicFlag("vip-access-content");
+    const hasVipContent = useSchematicFlag("vip-content");
 
     useEffect(() => {
         const handlePlanChanged = (event: PlanChangedEvent) => {

@@ -28,31 +28,37 @@ export default defineType({
            name: "headerLogo",
            title: "Header Logo",
            type: "image",
+            validation: (Rule) => Rule.required(),
             fields: [{
                name: "alt",
                 type: "string",
                 title: "Alt Text",
                 description:"Alternative text for accessibility and SEO",
-            }]
+            }],
+            options: {
+               hotspot: true,
+            }
 
         }),
         defineField({
-           name: "mainHeroImage",
-           title: "Main Hero Image",
-           type: "image",
+            name: "mainHeroImage",
+            title: "Main Hero Image",
+            type: "image",
             fields: [{
                 name: "alt",
                 type: "string",
                 title: "Alt Text",
                 description:"Alternative text for accessibility and SEO",
-            }]
+            }],
+            validation: (Rule) => Rule.required(),
         }),
 
         defineField({
             name: "logo",
             title: "Logo",
             type: "image",
-            description: "Your logo"
+            description: "Your logo",
+            validation: (Rule) => Rule.required(),
         }),
 
         defineField({

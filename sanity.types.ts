@@ -74,6 +74,77 @@ export type Slug = {
   source?: string;
 };
 
+export type Message = {
+  _id: string;
+  _type: "message";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  senderName?: string;
+  senderEmail?: string;
+  messageBody?: string;
+  isRead?: boolean;
+};
+
+export type Comment = {
+  _id: string;
+  _type: "comment";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  post?: {
+    _ref: string;
+    _type: "reference";
+    _weak?: boolean;
+    [internalGroqTypeReferenceTo]?: "post";
+  };
+  name?: string;
+  userImageUrl?: string;
+  email?: string;
+  comment?: string;
+};
+
+export type Post = {
+  _id: string;
+  _type: "post";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  title?: string;
+  body?: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
+      _key: string;
+    }>;
+    style?: "normal" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "blockquote";
+    listItem?: "bullet" | "number";
+    markDefs?: Array<{
+      href?: string;
+      _type: "link";
+      _key: string;
+    }>;
+    level?: number;
+    _type: "block";
+    _key: string;
+  }>;
+  tierAccess?: "backstage" | "crew" | "vip";
+  coverImage?: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    media?: unknown;
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    alt?: string;
+    _type: "image";
+  };
+};
+
 export type SiteSettings = {
   _id: string;
   _type: "siteSettings";
@@ -120,7 +191,7 @@ export type SiteSettings = {
     crop?: SanityImageCrop;
     _type: "image";
   };
-  socialMediaLinks?: Array<{
+  socials?: Array<{
     platform?: "tiktok" | "discord";
     url?: string;
     _type: "socialLink";
@@ -186,7 +257,7 @@ export type SanityImageMetadata = {
   isOpaque?: boolean;
 };
 
-export type AllSanitySchemaTypes = SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityFileAsset | Geopoint | Slug | SiteSettings | SanityImageCrop | SanityImageHotspot | SanityImageAsset | SanityAssetSourceData | SanityImageMetadata;
+export type AllSanitySchemaTypes = SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityFileAsset | Geopoint | Slug | Message | Comment | Post | SiteSettings | SanityImageCrop | SanityImageHotspot | SanityImageAsset | SanityAssetSourceData | SanityImageMetadata;
 export declare const internalGroqTypeReferenceTo: unique symbol;
 // Source: ./sanity/lib/siteSettings/getSiteSettings.ts
 // Variable: siteSettingsQuery
@@ -235,7 +306,7 @@ export type SiteSettingsQueryResult = {
     crop?: SanityImageCrop;
     _type: "image";
   };
-  socialMediaLinks?: Array<{
+  socials?: Array<{
     platform?: "discord" | "tiktok";
     url?: string;
     _type: "socialLink";
