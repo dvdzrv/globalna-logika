@@ -6,5 +6,5 @@ import comment from "./comment"
 import message from "./message"
 
 export const schema: { types: SchemaTypeDefinition[] } = {
-  types: [siteSettings],
+  types: [siteSettings, post, comment, message],
 }

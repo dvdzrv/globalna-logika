@@ -28,4 +28,4 @@ async function HeroBanner() {
     );
 }
 
-export default HeroBanner
+export default HeroBanner;

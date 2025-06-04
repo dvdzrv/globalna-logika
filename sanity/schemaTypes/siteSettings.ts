@@ -62,7 +62,7 @@ export default defineType({
         }),
 
         defineField({
-            name:"socialMediaLinks",
+            name:"socials",
             title:"Social Media Links",
             type:"array",
             description:"Add your social media profiles for visitors to connect with you",
