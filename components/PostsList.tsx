@@ -4,6 +4,7 @@ import FilterByTierSelect from "./FilterByTierSelect";
 import React from "react";
 import post from "@/sanity/schemaTypes/post";
 import { getSiteSettings } from "@/sanity/lib/siteSettings/getSiteSettings";
+import Post from "@/components/Post";
 
 async function PostsList({posts} : {posts: GetPostsQueryResult}) {
     const siteSettings = await getSiteSettings();

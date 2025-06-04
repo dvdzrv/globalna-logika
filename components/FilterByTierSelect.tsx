@@ -18,8 +18,6 @@ function FilterByTierSelect() {
 
     }
 
-
-
     return (
         <Select onValueChange={handleValueChange}>
             <SelectTrigger className="w-[200px]">
@@ -29,7 +27,7 @@ function FilterByTierSelect() {
             <SelectContent>
                 <SelectItem value="all">All</SelectItem>
                 {Object.entries(tierMap).map(([tier, level]) => (
-                    <SelectItem value={tier} key={tier}>
+                    <SelectItem key={tier} value={tier}>
                         {membershipMap[level]}
                     </SelectItem>
                 ))}

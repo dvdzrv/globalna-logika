@@ -3,9 +3,12 @@ import { getSocialIcon} from "@/lib/socialToIcon";
 import { getSiteSettings } from '@/sanity/lib/siteSettings/getSiteSettings'
 import Image from "next/image";
 import {urlFor} from "@/sanity/lib/image"
+import MemberButton from "./MemberButton";
+import { getPosts } from "@/sanity/lib/post/getPosts";
 
 async function InformationPanel() {
     const siteSettings = await getSiteSettings();
+    const posts = await getPosts();
 
     return(
         <div className="flex flex-col items-center justify-center max-w-2xl mx-auto py-8 px-4 space-y-4">
@@ -29,7 +32,7 @@ async function InformationPanel() {
 
             <div className="flex items-center justify-center space-x-4">
                 <div className="text-center">
-                    <p className="text-2xl font-bold">{0}</p>
+                    <p className="text-2xl font-bold">{posts.length}</p>
                     <p className="text-gray-600">Posts</p>
                 </div>
             </div>
