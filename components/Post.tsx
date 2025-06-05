@@ -55,7 +55,7 @@ function Post({post}: { post: GetPostsQueryResult[number] }) {
     );
 
     return (
-        <Link href={`/post/${post._id}`}>
+        <Link href={`/post/${post._id}`} key={post._id} >
             <article
                 className="bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow duration-200 group cursor-pointer relative">
                 {post.coverImage?.asset && (

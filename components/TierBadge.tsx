@@ -5,9 +5,9 @@ interface TierBadgeProps {
     tierAccess: TierAccess;
 }
 
-function TierBadge({tierAccess}: TierAccessProps) {
+function TierBadge({tierAccess}: TierBadgeProps) {
     return (
-        <Badge tier={tierAccess}/>
+        <Badge tier={tierAccess} variant="simple"/>
     )
 }
 

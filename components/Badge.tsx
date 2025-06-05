@@ -9,7 +9,7 @@ interface BadgeProps {
     link?: string;
 }
 
-function Badge({variant = "simple", tier, link, className}: BadgeProps) {
+function Badge({/*variant = "simple",*/ tier, link, className}: BadgeProps) {
     const baseStyle = "px-3 py-rounder rounded-full text-sm font-medium"
     const level = tierMap[tier];
     const label = membershipMap[level];
@@ -17,12 +17,14 @@ function Badge({variant = "simple", tier, link, className}: BadgeProps) {
 
 
     return (
-        <Link href={link || ""}
+        <button href={link || null}
               className={`flex items-center ${baseStyle} ${className} ${badgeColor}`}
+
+              key={link || "badge"}
         >
             {getBadgeIcon(level)}
             <p>{label}</p>
-        </Link>
+        </button>
     )
 }
 
