@@ -10,6 +10,7 @@ async function HeroBanner() {
             {siteSettings?.mainHeroImage && (
                 <>
                     <Image
+                        // @ts-expect-error
                         src={urlFor(siteSettings?.mainHeroImage).url()}
                         alt="Hero Banner"
                         fill
