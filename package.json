@@ -12,6 +12,7 @@
   "dependencies": {
     "@clerk/nextjs": "^6.20.0",
     "@icons-pack/react-simple-icons": "^13.0.0",
+    "@portabletext/react": "^3.2.1",
     "@radix-ui/react-select": "^2.2.5",
     "@radix-ui/react-slot": "^1.2.3",
     "@sanity/client": "^7.3.0",
@@ -28,6 +29,7 @@
     "next-sanity": "^9.11.1",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "react-timeago": "^8.2.0",
     "sanity": "^3.89.0",
     "styled-components": "^6.1.18",
     "tailwind-merge": "^3.3.0"
@@ -35,6 +37,7 @@
   "devDependencies": {
     "@eslint/eslintrc": "^3",
     "@tailwindcss/postcss": "^4",
+    "@tailwindcss/typography": "^0.5.16",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",

@@ -1,4 +1,4 @@
-import {TierAccess, tierMap, membershipMap} from "@/types/types";
+import {membershipMap, TierAccess, tierMap} from "@/types/types";
 import {getBadgeColor, getBadgeIcon} from "@/components/utils";
 import Link from "next/link";
 
@@ -9,7 +9,7 @@ interface BadgeProps {
     link?: string;
 }
 
-function Badge({variant="simple", tier, link, className}: BadgeProps) {
+function Badge({variant = "simple", tier, link, className}: BadgeProps) {
     const baseStyle = "px-3 py-rounder rounded-full text-sm font-medium"
     const level = tierMap[tier];
     const label = membershipMap[level];
@@ -18,7 +18,7 @@ function Badge({variant="simple", tier, link, className}: BadgeProps) {
 
     return (
         <Link href={link || ""}
-        className={`flex items-center ${baseStyle} ${className} ${badgeColor}`}
+              className={`flex items-center ${baseStyle} ${className} ${badgeColor}`}
         >
             {getBadgeIcon(level)}
             <p>{label}</p>

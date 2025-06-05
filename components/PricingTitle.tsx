@@ -11,7 +11,7 @@ function PricingTitle() {
             <h1 className="text-4xl text-white font-bold flex items-center justify-center gap-4 bg-blue-700
             p-4">
                 {isPremium ? "Thank you." : "Support me."}
-                <Heart className="text-red-500 fill-red-500" />
+                <Heart className="text-red-500 fill-red-500"/>
             </h1>
         </div>
     )

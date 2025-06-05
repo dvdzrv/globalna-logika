@@ -1,7 +1,7 @@
-import { TierAccess } from "@/types/types";
+import {TierAccess} from "@/types/types";
 import Badge from "./Badge";
 
-interface  TierBadgeProps {
+interface TierBadgeProps {
     tierAccess: TierAccess;
 }
 

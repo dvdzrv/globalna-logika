@@ -10,14 +10,15 @@ function CurrentTierBadge() {
     const {user} = useUser();
 
 
-    if (!membershipTier || !user) { return null; }
+    if (!membershipTier || !user) {
+        return null;
+    }
 
     const tierAccess = getTierFromLevel(membershipTier);
 
 
-
     return (
-        <Badge variant="interactive" tier={tierAccess} link="/pricing" />
+        <Badge variant="interactive" tier={tierAccess} link="/pricing"/>
     )
 }
 

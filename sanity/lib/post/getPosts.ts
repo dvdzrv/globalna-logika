@@ -8,7 +8,7 @@ const getPostsQuery = defineQuery(
 }`);
 
 const getPostsQueryWithTier = defineQuery(
-    `*[_type == "post"] && tierAccess == $tier | order(_createdAt desc) {
+    `*[_type == "post" && tierAccess == $tier] | order(_createdAt desc) {
     ...,
     "comments": *[_type == "comment" && post._red == ^._id] | order(_createdAt desc)
 }`);

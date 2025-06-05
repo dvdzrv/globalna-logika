@@ -1,19 +1,18 @@
-import { SocialPlatform } from "@/lib/socialToIcon";
-import { getSocialIcon} from "@/lib/socialToIcon";
-import { getSiteSettings } from '@/sanity/lib/siteSettings/getSiteSettings'
+import {getSocialIcon, SocialPlatform} from "@/lib/socialToIcon";
+import {getSiteSettings} from '@/sanity/lib/siteSettings/getSiteSettings'
 import Image from "next/image";
 import {urlFor} from "@/sanity/lib/image"
 import MemberButton from "./MemberButton";
-import { getPosts } from "@/sanity/lib/post/getPosts";
+import {getPosts} from "@/sanity/lib/post/getPosts";
 
 async function InformationPanel() {
     const siteSettings = await getSiteSettings();
     const posts = await getPosts();
 
-    return(
+    return (
         <div className="flex flex-col items-center justify-center max-w-2xl mx-auto py-8 px-4 space-y-4">
 
-            {siteSettings?.logo &&(
+            {siteSettings?.logo && (
                 <Image
                     src={urlFor(siteSettings?.logo).url()}
                     alt="logo"
@@ -37,16 +36,16 @@ async function InformationPanel() {
                 </div>
             </div>
 
-            <MemberButton />
+            <MemberButton/>
 
             <div className="flex items-center justify-center space-x-4">
                 {siteSettings?.socials?.map((social) => {
-                const Icon = getSocialIcon(social.platform as SocialPlatform);
-                return(
-                    <a href={social.url} key={social.platform}>
-                        <Icon />
-                    </a>
-                );
+                    const Icon = getSocialIcon(social.platform as SocialPlatform);
+                    return (
+                        <a href={social.url} key={social.platform}>
+                            <Icon/>
+                        </a>
+                    );
                 })}
             </div>
         </div>

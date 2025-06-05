@@ -1,10 +1,8 @@
 "use client";
 
-import { useRouter } from "next/navigation";
+import {useRouter} from "next/navigation";
 
-import {
-    Select, SelectContent, SelectItem, SelectTrigger, SelectValue
-} from "@/components/ui/select"
+import {Select, SelectContent, SelectItem, SelectTrigger, SelectValue} from "@/components/ui/select"
 import {membershipMap, tierMap} from "@/types/types";
 
 function FilterByTierSelect() {
@@ -36,4 +34,5 @@ function FilterByTierSelect() {
 
     )
 }
+
 export default FilterByTierSelect;

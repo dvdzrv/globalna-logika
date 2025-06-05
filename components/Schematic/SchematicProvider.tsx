@@ -10,7 +10,7 @@ if (!publishableKey) {
     throw new Error("process.env.NEXT_PUBLIC_SCHEMATIC_PUBLISHABLE_KEY is required");
 }
 
-const SchematicWrapped = ({children}: {children: React.ReactNode}) => {
+const SchematicWrapped = ({children}: { children: React.ReactNode }) => {
     const {identify} = useSchematicEvents();
     const {user} = useUser();
 
@@ -44,9 +44,7 @@ const SchematicWrapped = ({children}: {children: React.ReactNode}) => {
 }
 
 
-
-
-function Provider({children}: {children: React.ReactNode}) {
+function Provider({children}: { children: React.ReactNode }) {
     return (
         <SchematicProvider publishableKey={publishableKey!}>
             <SchematicWrapped>{children}</SchematicWrapped>

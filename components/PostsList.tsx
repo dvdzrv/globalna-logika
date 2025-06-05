@@ -1,12 +1,11 @@
-import { GetPostsQueryResult } from "@/sanity.types";
+import {GetPostsQueryResult} from "@/sanity.types";
 import {ClerkLoaded} from "@clerk/nextjs";
 import FilterByTierSelect from "./FilterByTierSelect";
 import React from "react";
-import post from "@/sanity/schemaTypes/post";
-import { getSiteSettings } from "@/sanity/lib/siteSettings/getSiteSettings";
+import {getSiteSettings} from "@/sanity/lib/siteSettings/getSiteSettings";
 import Post from "@/components/Post";
 
-async function PostsList({posts} : {posts: GetPostsQueryResult}) {
+async function PostsList({posts}: { posts: GetPostsQueryResult }) {
     const siteSettings = await getSiteSettings();
     return (
         <section className="my-8px px-4">
@@ -16,13 +15,13 @@ async function PostsList({posts} : {posts: GetPostsQueryResult}) {
                 </h2>
 
                 <div className={"flex justify-center items-center mb-4"}>
-                    <FilterByTierSelect />
+                    <FilterByTierSelect/>
                 </div>
 
                 <div className="grid grid-cols-1 gap-6">
                     <ClerkLoaded>
-                        {posts.map((post)=> (
-                            <Post key={post._id} post={post} />
+                        {posts.map((post) => (
+                            <Post key={post._id} post={post}/>
                         ))}
                     </ClerkLoaded>
                 </div>
