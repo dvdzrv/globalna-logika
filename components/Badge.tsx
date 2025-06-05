@@ -1,6 +1,6 @@
 import {membershipMap, TierAccess, tierMap} from "@/types/types";
 import {getBadgeColor, getBadgeIcon} from "@/components/utils";
-import Link from "next/link";
+//import Link from "next/link";
 
 interface BadgeProps {
     variant: "interactive" | "simple";
