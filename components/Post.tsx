@@ -15,7 +15,7 @@ import {MessageCircleIcon} from "lucide-react";
 import TimeAgo from "react-timeago";
 
 
-function Post({post}: {post: GetPostsQueryResult[number]}) {
+function Post({post}: { post: GetPostsQueryResult[number] }) {
     const membershipTier = useMembershipTier();
     const {user} = useUser();
 
@@ -56,8 +56,48 @@ function Post({post}: {post: GetPostsQueryResult[number]}) {
 
     return (
         <Link href={`/post/${post._id}`}>
-            <article className="bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow duration-200 group cursor-pointer relative">
+            <article
+                className="bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow duration-200 group cursor-pointer relative">
+                {post.coverImage?.asset && (
+                    <div className="relative aspect-[16/9] w-full overflow-hidden rounded-t-lg">
+                        <Image
+                            src={urlFor(post.coverImage).url()}
+                            alt={post.coverImage.alt || post.title || "Post cover image"}
+                            fill
+                            className="object-contain group-hover:scale-105 transition-all duration-300"
+                        />
+                    </div>
+                )}
 
+                {post.tierAccess && (
+                    <div className="absolute top-4 right-4">
+                        <Badge tier={post.tierAccess} variant="simple"/>
+                    </div>
+                )}
+
+                <div className="p-6">
+                    <h2 className="text-xl font-semibold text-gray-900 mb-2">
+                        {post.title}
+                    </h2>
+
+                    {post.body && (
+                        <div className="text-gray-600 prose">
+                            <PortableText value={post.body}/>
+                        </div>
+                    )}
+                </div>
+
+                <div className="flex items-center justify-between p-4">
+                    <div className="text-sm text-gray-500 text-right border
+border-gray-200 rounded-full px-4 py-1 flex items-center gap-2">
+                        <MessageCircleIcon className="w-4 h-4"/>
+                        {post.comments?.length} comments
+                    </div>
+
+                    <div className="text-right text-sm text-gray-500">
+                        <TimeAgo date={post._createdAt}/>
+                    </div>
+                </div>
             </article>
         </Link>
     );

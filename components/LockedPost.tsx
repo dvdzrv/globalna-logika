@@ -4,8 +4,9 @@ import Image from "next/image";
 import Link from "next/link";
 import {Lock, MessageCircleIcon} from "lucide-react";
 import TierBadge from "./TierBadge";
+import CreatedAt from "./CreatedAt";
 
-function LockedPost({post}: {post: GetPostsQueryResult[number]}) {
+function LockedPost({post}: { post: GetPostsQueryResult[number] }) {
     return (
         <Link href="/pricing">
             <article
@@ -31,19 +32,20 @@ function LockedPost({post}: {post: GetPostsQueryResult[number]}) {
                     </div>
                 )}
 
-            <div className="p-6">
-                <h2 className="text-xl font-semibold text-gray-900 mb-2">
-                    {post.title}
-                </h2>
-                <div className="absolute inset-8 opacity-5">
-                    <div className="grid grid-cols-6 gap-4">
-                        {
-                            Array(18).fill(0).map((_, i) => (
-                                <Lock key={i} className="w-4 h-4 text-gray-400"/>
-                            ))
-                        }
-                    </div>
-                </div>
+                <div className="p-6">
+                    <h2 className="text-xl font-semibold text-gray-900 mb-2">
+                        {post.title}
+                    </h2>
+
+                    <div className="relative">
+                        <div className="absolute inset-0 opacity-10">
+                            <div className="grid grid-cols-6 gap-4">
+                                {
+                                    Array(18).fill(0).map((_, i) => (
+                                        <Lock key={i} className="w-4 h-4 text-gray-400"/>
+                                    ))}
+                            </div>
+                        </div>
 
                         <div className="absolute inset-0 bg-gradient-to-b from-transparent to-white z-10"/>
 
