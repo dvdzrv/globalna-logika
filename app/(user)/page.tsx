@@ -1,5 +1,3 @@
-//"use server";
-
 //import Image from "next/image";
 
 export const dynamic = 'force-dynamic';
@@ -17,7 +15,7 @@ export default async function Home({searchParams}: {searchParams: Promise<{ tier
         <div className="">
             <HeroBanner />
             <div className="-mt-20">
-            <InformationPanel />
+                <InformationPanel />
             </div>
             <hr />
 
