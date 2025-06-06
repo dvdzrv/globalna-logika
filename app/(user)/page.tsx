@@ -1,3 +1,5 @@
+"use server";
+
 //import Image from "next/image";
 import HeroBanner from "../../components/HeroBanner";
 import PostsList from "../../components/PostsList";
