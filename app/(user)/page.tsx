@@ -1,6 +1,9 @@
 "use server";
 
 //import Image from "next/image";
+
+export const dynamic = 'force-dynamic';
+
 import HeroBanner from "../../components/HeroBanner";
 import PostsList from "../../components/PostsList";
 import InformationPanel from "../../components/InformationPanel";
