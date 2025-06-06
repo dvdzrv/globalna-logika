@@ -6,12 +6,12 @@ import useMembershipTier from "@/hooks/useMembershipTier";
 import {useUser} from "@clerk/nextjs"
 import {TierAccess, tierMap} from "@/types/types";
 import {urlFor} from "@/sanity/lib/image";
-import Link from "next/link";
+//import Link from "next/link";
 import LockedPost from "./LockedPost";
 import Image from "next/image";
 import Badge from "./Badge";
 import {PortableText} from "@portabletext/react";
-import {MessageCircleIcon} from "lucide-react";
+//import {MessageCircleIcon} from "lucide-react";
 import TimeAgo from "react-timeago";
 
 
